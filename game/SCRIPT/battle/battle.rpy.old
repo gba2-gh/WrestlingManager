@@ -1,0 +1,123 @@
+#TODO: SHOW, SISTEMA DE RENDICION, 3 ROUNDS, PANTALLA GANADOR, ARREGLAR SITEMA STMI, AÑADIR MAS ATAQUES
+
+label battle:
+    $p_wrestler.stami_add(+10)
+    $comp_wrestler.stami_add(+10)
+
+    python:
+
+        p_move = renpy.call_screen("moves_screen", p_wrestler,comp_wrestler, 100)
+        comp_move = renpy.call_screen("moves_screen", comp_wrestler,p_wrestler, 1000)
+
+        p_wrestler.stami_add(-p_move.stami)
+        comp_wrestler.stami_add(-comp_move.stami)
+
+
+
+        #Calcular y restar daño ocasionado
+        p_dmg_done, comp_dmg_done, p_moves_first = movesOutcome(p_wrestler, comp_wrestler, p_move, comp_move)
+        p_wrestler.hp_down(comp_dmg_done)
+        comp_wrestler.hp_down(p_dmg_done)
+
+        #calcular res_state
+        p_wrestler.res_state = calc_wrestler_res_state(p_wrestler.hp_max, p_wrestler.hp)
+        comp_wrestler.res_state = calc_wrestler_res_state(comp_wrestler.hp_max, comp_wrestler.hp)
+
+
+    call screen battle_screen(p_wrestler, comp_wrestler, p_move, comp_move, round_num, )
+
+
+screen battle_screen( p_w, comp_w, p_move, comp_move, round_num):
+    modal True
+    text "Round: [round_num]"  xalign 0.5
+    vbox:
+        xalign 0.2 ypos 100 spacing 10
+        text "[p_w.name]"
+        use bar_screen(p_w)
+        text "[p_move.fname]"
+        text "dmg= [p_dmg_done]"
+        text "movesFirst= [p_moves_first]"
+
+    vbox:
+        xalign 0.8 ypos 100 spacing 10
+        text "[comp_w.name]"
+        use bar_screen(comp_w)
+        text "[comp_move.fname]"
+        text "dmg= [comp_dmg_done]"
+
+    vbox:
+        xalign 0.5 ypos 600 spacing 10
+        if p_move.res_state==3:
+            textbutton "Rendir"  action Call("battle_pin_seq", p_move)
+        textbutton "continuar" action Jump("battle")
+
+#SCREEN para elegir movimiento a utilizar
+screen moves_screen(tori_w,uke_w, x):
+
+    vbox:
+        xpos x ypos 100
+        use bar_screen(tori_w)
+    text "[tori_w.name], hp= [uke_w.hp], res_state= [tori_w.res_state], stamina= [tori_w.stami]"
+    $y=300
+    for move in all_moves:
+        $move.calc_hit_prob(uke_w.res_state)
+        $y =y+50
+        textbutton  "[move.fname] /dmg= [move.dmg], / stam= [move.hit_prob]" xpos x ypos y action [Return(move)] #####CAMBIO and  w2.res_state >= move.res_state
+
+
+label battle_pin_seq(move):
+    "[comp_wrestler.name]"
+
+    #EXTRAS
+    python:
+        round_weight = 0.1
+        show_weight = -0.2
+        FT_weight = 0.05
+        rand_value =  random.randint(-5, 5) * 0.01
+        round_state = 0
+        show_state = 0
+
+        pin_prob = 1- (comp_wrestler.hp/comp_wrestler.hp_max) + (round_weight)*(round_state) +  (show_weight)*(show_state) + (FT_weight)*(0) + rand_value
+
+        if pin_prob > comp_wrestler.resist:
+            score[0] +=1
+            if score[0] == 2 or score[1] ==2:
+                renpy.call_screen("match_over_screen", p_wrestler, move.type)
+            else:
+                round_num +=1
+                renpy.call_screen("round_over_screen", p_wrestler, move.type, round_num-1)
+
+    "[pin_prob]"
+
+
+    jump battle
+
+screen round_over_screen(wrestler,x, round_numb):
+    text "Round [round_numb]" ypos 100
+    text "[wrestler.name]" ypos 200
+    if x== 1 or x==3:
+        text "Ganador por pin" xpos 100 ypos 100
+    elif x== 2:
+        text "Ganador por sub" xpos 100 ypos 100
+
+    timer 5 repeat False action Call("battle")
+
+
+screen match_over_screen(wrestler,x):
+    text "[wrestler.name]"
+    if x== 1 or x==3:
+        text "Ganador por pin" xpos 100 ypos 100
+    elif x== 2:
+        text "Ganador por sub" xpos 100 ypos 100
+
+    timer 5 repeat False action Call("start")
+
+
+
+screen bar_screen(p_w):
+    text "HP: [p_w.hp]"
+    bar value AnimatedValue(p_w.hp, range=p_w.hp_max, delay = 5.0 )left_bar Frame("gui/bar_full.png",5,5) right_bar Frame("gui/bar_empty.png",5,5) thumb None xmaximum 400 ymaximum 10
+    text "SP: [p_w.stami]"
+    bar range p_w.stami_max value p_w.stami left_bar Frame("gui/bar_full.png",5,5) right_bar Frame("gui/bar_empty.png",5,5) thumb None  xmaximum 400  ymaximum 10
+    # bar range comp_w.hp_max value comp_w.hp left_bar Frame("gui/bar_full.png",5,5) right_bar Frame("gui/bar_empty.png",5,5) thumb None xpos 1000 xmaximum 400 ypos 100 ymaximum 10
+    # bar range comp_w.stami_max value comp_w.stami left_bar Frame("gui/bar_full.png",5,5) right_bar Frame("gui/bar_empty.png",5,5) thumb None xpos 1000 xmaximum 400 ypos 200 ymaximum 10
