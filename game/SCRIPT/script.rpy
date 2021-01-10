@@ -4,7 +4,7 @@ label main_menu:
 label start:
     python:
         #renpy.jump("office") #[menu.rpy]
-        renpy.jump("perf_atk")
+        #renpy.jump("perf_atk")
         #Llamar screen para seleciconar luchador [menu_screens.rpy]
         p_w = renpy.call_screen("select_screen", "Player 1", 100)
         #com_w= renpy.call_screen("select_screen", "com", 1500)

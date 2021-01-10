@@ -3,7 +3,14 @@ init -2 python:
     import operator
 
 
+init python:
+    value = 0
+    last_atk_time = 0
+
+
+
 define battle_sys=0 ##Sistema de combate a utilizar: 0==FG10, 1==FF13
+define perf_atk_time=0
 
 define start_timer =False
 define day =1
@@ -35,6 +42,19 @@ define round = 1
 #
 # define com_atk_timer=0
 # define com_atk_delay=0
+
+
+transform atk_circle_anim:
+    xalign 0.5 yalign 0.5
+    linear 0.0 zoom 8
+    pause 1.0
+    linear 0.9 zoom 0.2
+
+
+transform pulse_button:
+    on hover, idle:
+        linear .25 zoom 1.25
+        linear .25 zoom 1.0
 
 #####IMAGES
 

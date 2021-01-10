@@ -47,7 +47,9 @@ label battle_seq(w,move):
         #remover ataque utilizado
         w.moves_act.remove(move)
         #reiniciar timer de ataque
-        w.atk_timer=0
+        w.atk_timer=0#esto es para ff 10
+        last_atk_time=0 #timer de animacion de ataque
+
         ##Condiciòn de victoria, activan flag para rendir
         if uke.hp <= uke.hp_max * 0.3:
             renpy.call_screen("battle_seq_screen", w, move, True, dmg_cal, dmg_combo)#rendir

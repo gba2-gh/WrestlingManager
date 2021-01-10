@@ -1,65 +1,144 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/SCRIPT/minigame.rpy", line 15, in script
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
-  File "game/SCRIPT/minigame.rpy", line 18, in <module>
-    renpy.call_screen("perf_atk_screen", atk_flag, perf_atk_flag)
-  File "game/SCRIPT/minigame.rpy", line 22, in execute
-    screen perf_atk_screen(atk_flag, perf_atk_flag ):
-  File "game/SCRIPT/minigame.rpy", line 22, in execute
-    screen perf_atk_screen(atk_flag, perf_atk_flag ):
-  File "game/SCRIPT/minigame.rpy", line 30, in execute
-    timer 1 repeat False action Function(clocktick)
-  File "game/SCRIPT/minigame.rpy", line 30, in keywords
-    timer 1 repeat False action Function(clocktick)
-NameError: name 'clocktick' is not defined
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 32, in script
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 55, in <module>
+    renpy.call_screen("battle_seq_screen", w, move, False, dmg_cal, dmg_combo)#continua la lucha
+  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
+    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
+  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
+    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
+  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in execute
+    $uke=w.atk_targetwa
+  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in <module>
+    $uke=w.atk_targetwa
+AttributeError: 'wrestler' object has no attribute 'atk_targetwa'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/SCRIPT/minigame.rpy", line 15, in script
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 32, in script
+    python:
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/SCRIPT/minigame.rpy", line 18, in <module>
-    renpy.call_screen("perf_atk_screen", atk_flag, perf_atk_flag)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\exports.py", line 2905, in call_screen
+  File "game/SCRIPT/battle/battle.rpy", line 55, in <module>
+    renpy.call_screen("battle_seq_screen", w, move, False, dmg_cal, dmg_combo)#continua la lucha
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/exports.py", line 2905, in call_screen
     rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\ui.py", line 297, in interact
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/ui.py", line 297, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 2702, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in interact_core
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in interact_core
     root_widget.visit_all(lambda i : i.per_interact())
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
     d.visit_all(callback, seen)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
     d.visit_all(callback, seen)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
     d.visit_all(callback, seen)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\screen.py", line 430, in visit_all
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/screen.py", line 430, in visit_all
     callback(self)
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in <lambda>
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in <lambda>
     root_widget.visit_all(lambda i : i.per_interact())
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\screen.py", line 440, in per_interact
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/screen.py", line 440, in per_interact
     self.update()
-  File "D:\Gamedev\renpy-7.3.5-sdk\renpy\display\screen.py", line 625, in update
+  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/screen.py", line 625, in update
     self.screen.function(**self.scope)
-  File "game/SCRIPT/minigame.rpy", line 22, in execute
-    screen perf_atk_screen(atk_flag, perf_atk_flag ):
-  File "game/SCRIPT/minigame.rpy", line 22, in execute
-    screen perf_atk_screen(atk_flag, perf_atk_flag ):
-  File "game/SCRIPT/minigame.rpy", line 30, in execute
-    timer 1 repeat False action Function(clocktick)
-  File "game/SCRIPT/minigame.rpy", line 30, in keywords
-    timer 1 repeat False action Function(clocktick)
-  File "<screen language>", line 30, in <module>
-NameError: name 'clocktick' is not defined
+  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
+    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
+  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
+    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
+  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in execute
+    $uke=w.atk_targetwa
+  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in <module>
+    $uke=w.atk_targetwa
+AttributeError: 'wrestler' object has no attribute 'atk_targetwa'
 
-Windows-7-6.1.7601-SP1
+Linux-4.15.0-128-generic-x86_64-with-debian-stretch-sid
 Ren'Py 7.3.5.606
 WrestlingManager 1.0
-Sat Jan 09 18:56:32 2021
+Sun Jan 10 11:35:52 2021
