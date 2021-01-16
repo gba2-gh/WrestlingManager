@@ -1,5 +1,6 @@
 init-2  python:
     all_moves=[]
+    all_moves_def=[]
     strike_moves=[]
     power_moves=[]
     sub_moves=[]
@@ -66,6 +67,20 @@ init-2  python:
             self.hit_prob = 100 + (uke_rank - self.res_rank) * 20
             if self.hit_prob > 100:
                 self.hit_prob = 100
+
+
+    class move_def(store.object):
+
+        def __init__(self,name, type , lvl, rank ): #rank de A a F, lvl nivel momentum
+            global all_moves_def
+            self.name = name
+            self.type = type
+            self.rank =rank
+            self.lvl=lvl
+
+
+            if self not in all_moves_def:
+                all_moves_def.append(self)
 
 #DECLARR MOVS
 #rank de A a F, lvl nivel momentum
@@ -150,6 +165,12 @@ init -1 python:
     frog = move("Frog splash", 3, 2, 3)
     # spanish = move("Spanish fly", 3, 2, 4)
     # excalibur = move("Excalibur", 3, 2, 5)
+
+    #DEFENSA
+    strk_def = move_def("Strike defense", 0, 0, 0)
+    pow_def =  move_def("Power defense", 1, 0, 0)
+    tech_def =  move_def("Technical defense", 2, 0, 0)
+    agi_def =  move_def("Agility defense", 3, 0, 0)
 
 
 

@@ -1,8 +1,6 @@
 #label: ataque perfecto, tag, multiplicadores de combo, balancear
 label battle:
     python:
-        #find_moves_act(p_w)   ##Función de ataque automatico, en cuanto eliges el ataque este se realiza. Sistema de combate anterior
-        #find_moves_act(com_w)
         #update stamina
         p_w.energy_update()
         com_w.energy_update()
@@ -11,6 +9,13 @@ label battle:
         com_w.mom_update()
 
         find_moves_act(p_w)
+
+
+
+
+        #find_moves_act(p_w)   ##Función de ataque automatico, en cuanto eliges el ataque este se realiza. Sistema de combate anterior
+        #find_moves_act(com_w)
+
         ##  FF10 >>
         ##P_W ataca cuando se alcanza attack_delay.
         #####TODO Implementar el mismo sistema para ambos p_w y com_w
@@ -49,6 +54,7 @@ label battle_seq(w,move):
         #reiniciar timer de ataque
         w.atk_timer=0#esto es para ff 10
         last_atk_time=0 #timer de animacion de ataque
+        perf_atk_time=0
 
         ##Condiciòn de victoria, activan flag para rendir
         if uke.hp <= uke.hp_max * 0.3:

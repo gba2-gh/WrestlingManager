@@ -2,10 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/SCRIPT/minigame.rpy", line 9: invalid syntax
-        global minutes=0
-                       ^
+File "game/SCRIPT/moves.rpy", line 75: invalid syntax
+            global all_moves_def=[]
+                                 ^
     
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat Jan 09 22:15:47 2021
+Wed Jan 13 09:38:21 2021

@@ -1,25 +1,29 @@
 define player_team = []
+define com_team=[]
 label main_menu:
     return
 label start:
     python:
         #renpy.jump("office") #[menu.rpy]
-        #renpy.jump("perf_atk")
+
         #Llamar screen para seleciconar luchador [menu_screens.rpy]
-        p_w = renpy.call_screen("select_screen", "Player 1", 100)
+        #p_w = renpy.call_screen("select_screen", "Player 1", 100)
         #com_w= renpy.call_screen("select_screen", "com", 1500)
-        com_w = villano
+        #com_w = villano
         p_w.atk_target=com_w
         com_w.atk_target=p_w
 
-        renpy.jump("battle")
-
-
-
+        #renpy.jump("battle")
 
         player_team.append(mistico)
         player_team.append(wagner)
         player_team.append(yukiko)
+        com_team.append(villano)
+        com_team.append(villano)
+        com_team.append(villano)
+
+
+
         chosen_w=player_team[0]
         renpy.jump("move_swap")
 
