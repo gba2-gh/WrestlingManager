@@ -1,6 +1,7 @@
 #label: ataque perfecto, tag, multiplicadores de combo, balancear
 label battle:
     python:
+        p_w=p_team[0]
         #update stamina
         p_w.energy_update()
         com_w.energy_update()
@@ -9,9 +10,6 @@ label battle:
         com_w.mom_update()
 
         find_moves_act(p_w)
-
-
-
 
         #find_moves_act(p_w)   ##Función de ataque automatico, en cuanto eliges el ataque este se realiza. Sistema de combate anterior
         #find_moves_act(com_w)

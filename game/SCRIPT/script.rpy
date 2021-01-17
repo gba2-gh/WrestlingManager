@@ -1,5 +1,6 @@
-define player_team = []
-define com_team=[]
+define p_team = []
+define com_team =[]
+
 label main_menu:
     return
 label start:
@@ -10,21 +11,26 @@ label start:
         #p_w = renpy.call_screen("select_screen", "Player 1", 100)
         #com_w= renpy.call_screen("select_screen", "com", 1500)
         #com_w = villano
-        p_w.atk_target=com_w
-        com_w.atk_target=p_w
+        #p_w.atk_target=com_w
+        #com_w.atk_target=p_w
 
         #renpy.jump("battle")
 
-        player_team.append(mistico)
-        player_team.append(wagner)
-        player_team.append(yukiko)
+        p_team.append(mistico)
+        p_team.append(wagner)
+        p_team.append(yukiko)
         com_team.append(villano)
         com_team.append(villano)
         com_team.append(villano)
 
 
 
-        chosen_w=player_team[0]
+        chosen_w=p_team[0]#chosen se utiliza en los menus
+        p_w =p_team[0] #SE UTILIZAN EN BATTLE
+        com_w = com_team[0]
+        p_w.atk_target=com_w
+        com_w.atk_target=p_w
+
         renpy.jump("move_swap")
 
 

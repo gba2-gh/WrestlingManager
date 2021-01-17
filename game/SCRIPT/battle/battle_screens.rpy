@@ -20,24 +20,23 @@ screen battle_screen(p_w, com_w):
     use moves_screen(com_w, p_w, 1000)
 
     text "Round: [round]"  xalign 0.5
+
     #GUI
-    use w_data_screen(p_w, 0.3)
+    #use battle_char_select
+    use w_data_screen(p_team, 0.3)
     use com_data_screen(com_w, 0.7)
 
 
-#pantalla de movimientos para sistema de batalla con DELAYS
+#pantalla de movimientos
 screen moves_screen(tori_w,uke_w, x):
     modal True
-    $y=600
+    $y=750
     for move in tori_w.moves:
         #$move.calc_hit_prob(uke_w.res_state)   #probabilidad de que el movimiento sea efectivo
         $y =y+50
         if battle_sys == 0: #FF10
             textbutton  "[move.name] /dmg= [move.lvl]": #Sensible si barra de mom es la correcta, alcanza el costo del mov y si no hay otro ataque ya elegido . V2- ataque no elegido no es necesario
                 xpos x ypos y action [SensitiveIf(tori_w.mom_bar_lvl >= move.lvl and tori_w.energy- move.energy_cost >= 0 and len(tori_w.moves_act)<=0), AddToSet(tori_w.moves_act, move), SetVariable("perf_atk_time", last_atk_time)]
-        # elif battle_sys == 1: ##FF13
-        #     textbutton  "[move.name] /dmg= [move.dmg]": #Sensible si barra de mom es la correcta, barra de sp esta llena y si no hay otro ataque ya elegido
-        #         xpos x ypos y action [SensitiveIf( move.sp <= tori_w.sp_max - tori_w.sp_combo and tori_w.mom_bar_lvl >= move.lvl), AddToSet(tori_w.moves_act, move), Function(sp_combo_func, tori_w, move ), Function(sort_list, tori_w.moves_act )]
 
 
 #Pantalla para la secuencia de ataque

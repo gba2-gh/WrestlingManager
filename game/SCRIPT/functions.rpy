@@ -65,3 +65,10 @@ init python:
         dmg= move.dmg_mult * uke_defense * atk_base_stat * atk_bonus
 
         return [dmg, mom_up, uke_defense]
+
+
+    def swap_wrestler(team, ind):
+        old_active=team[0]
+        new_active=team[ind]
+
+        team[0], team[ind] = new_active, old_active

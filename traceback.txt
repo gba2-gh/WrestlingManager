@@ -27,6 +27,24 @@ While running game code:
     python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
+  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 67, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
@@ -41,19 +59,17 @@ While running game code:
     python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
-  File "game/SCRIPT/battle/battle.rpy", line 32, in script
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
-  File "game/SCRIPT/battle/battle.rpy", line 55, in <module>
-    renpy.call_screen("battle_seq_screen", w, move, False, dmg_cal, dmg_combo)#continua la lucha
-  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
-    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
-    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in execute
-    $uke=w.atk_targetwa
-  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in <module>
-    $uke=w.atk_targetwa
-AttributeError: 'wrestler' object has no attribute 'atk_targetwa'
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 35, in script
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 41, in <module>
+    dmg_cal= cal_base_dmg(w,uke,move)   ##calcular daño y mom up
+  File "game/SCRIPT/functions.rpy", line 45, in cal_base_dmg
+    def_skill_stat= uke.def_skill_points[move.type]
+AttributeError: 'int' object has no attribute 'def_skill_points'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -84,6 +100,24 @@ Full traceback:
     python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
+  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 67, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
@@ -98,47 +132,19 @@ Full traceback:
     python:
   File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
-  File "game/SCRIPT/battle/battle.rpy", line 32, in script
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
     python:
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+    python:
+  File "game/SCRIPT/battle/battle.rpy", line 35, in script
+    python:
+  File "renpy/ast.py", line 913, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/SCRIPT/battle/battle.rpy", line 55, in <module>
-    renpy.call_screen("battle_seq_screen", w, move, False, dmg_cal, dmg_combo)#continua la lucha
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/exports.py", line 2905, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/ui.py", line 297, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 2702, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/screen.py", line 430, in visit_all
-    callback(self)
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/screen.py", line 440, in per_interact
-    self.update()
-  File "/home/gba2/Documents/renpy-7.3.5-sdk/renpy/display/screen.py", line 625, in update
-    self.screen.function(**self.scope)
-  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
-    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 45, in execute
-    screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in execute
-    $uke=w.atk_targetwa
-  File "game/SCRIPT/battle/battle_screens.rpy", line 47, in <module>
-    $uke=w.atk_targetwa
-AttributeError: 'wrestler' object has no attribute 'atk_targetwa'
+  File "renpy/python.py", line 2111, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/SCRIPT/battle/battle.rpy", line 41, in <module>
+    dmg_cal= cal_base_dmg(w,uke,move)   ##calcular daño y mom up
+  File "game/SCRIPT/functions.rpy", line 45, in cal_base_dmg
+    def_skill_stat= uke.def_skill_points[move.type]
+AttributeError: 'int' object has no attribute 'def_skill_points'
 
-Linux-4.15.0-128-generic-x86_64-with-debian-stretch-sid
-Ren'Py 7.3.5.606
-WrestlingManager 1.0
-Sun Jan 10 11:35:52 2021

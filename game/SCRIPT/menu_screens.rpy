@@ -12,8 +12,6 @@ screen select_w_data(x):
     text"[x]" xpos 600
 
 #pantalla para Cambiar movs
-
-
 screen move_swap_screen():
     text "[chosen_w.name]"
 
@@ -39,5 +37,5 @@ screen move_swap_screen():
                 if mov == move:
                     $not_inset=False #mov ya en p_w set?
             textbutton "[move.name] (LVL=[move.lvl],  dmg=[move.dmg_mult], mom=[move.mom_mult], energy=[move.energy_cost], [move.duration]s)" action [SensitiveIf(len(chosen_w.moves)<5 and not_inset), AddToSet(chosen_w.moves, move)]
-    textbutton "Pelear" yalign 0.7 action Jump("battle")
+    textbutton "Pelear" yalign 0.7 action [Hide("move_swap_screen"), Jump("battle")]
     textbutton "Regresar" yalign 0.8 action Jump("start")
