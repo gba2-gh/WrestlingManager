@@ -4,7 +4,7 @@ init python:
         dmg_mult =1
         bonus_mov_tri = 0.15
         bonus_mov_equal = 0.15
-        uke= w.atk_target ##Receptordel movimiento
+        uke= p_team.atk_target ##Receptordel movimiento
         ###BONUS POR TRIANGULO DE MOVIMIENTO
         if move.type != uke.type:
             if (move.type == 1 and uke.type == 3) or (move.type == 3 and uke.type == 2) or (move.type == 2 and uke.type == 1):
@@ -19,9 +19,10 @@ init python:
 
     ## COMBOS? >>>
     ##Busca en moves_act
-    def find_moves_act(w):
-        for move in w.moves_act:
-            renpy.call("battle_seq", w, move)
+    def find_moves_act(team):
+        #w=team.members[0]
+        for move in team.moves_act:
+            renpy.call("battle_seq", team, move)
         return
         ##<<<
 
@@ -68,7 +69,10 @@ init python:
 
 
     def swap_wrestler(team, ind):
+        global p_w
+
         old_active=team[0]
         new_active=team[ind]
 
         team[0], team[ind] = new_active, old_active
+        p_w= new_active

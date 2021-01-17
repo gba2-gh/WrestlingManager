@@ -1,15 +1,27 @@
 #label: ataque perfecto, tag, multiplicadores de combo, balancear
 label battle:
     python:
-        p_w=p_team[0]
+        p_w=p_team.members[0]
+        com_w=com_team.members[0]
+        p_team.atk_target = com_w
+        com_team.atk_target = p_w
         #update stamina
-        p_w.energy_update()
-        com_w.energy_update()
-        #update momentum
-        p_w.mom_update()
-        com_w.mom_update()
 
-        find_moves_act(p_w)
+        for w in p_team.members:
+            w.energy_update()
+
+        for w in com_team.members:
+            w.energy_update()
+
+        #update momentum
+        p_team.mom_update()
+        com_team.mom_update()
+
+
+
+
+        find_moves_act(p_team)
+        find_moves_act(com_team)
 
         #find_moves_act(p_w)   ##Función de ataque automatico, en cuanto eliges el ataque este se realiza. Sistema de combate anterior
         #find_moves_act(com_w)
@@ -31,12 +43,13 @@ label battle:
         renpy.call_screen("timer_screen")
 
 #label: CAMBIOS OCURRIDOS AL REALIZAR UN MOVIMIENTO
-label battle_seq(w,move):
+label battle_seq(team,move):
     python:
+        w=team.members[0]
         ###SISTEMA DE COMBATE FF10
         #calcular bonus por triangulo
         #bonus = move_bonus_tri(w, move)##move[0], el ùnico mov en la lista
-        uke= w.atk_target
+        uke= team.atk_target
         #disminuir hp de receptor
         dmg_cal= cal_base_dmg(w,uke,move)   ##calcular daño y mom up
         #uke.hp -= dmg_cal[0]
@@ -45,10 +58,10 @@ label battle_seq(w,move):
         w.energy -=move.energy_cost
         #w.energy_combo=0
         #aumentar momentum del atacante
-        w.mom += dmg_cal[1]
-        w.mom_duration += move.duration   #Bonus delay: entre menor el lvl de la carta màs tiempo tarda la barra de momentum en comenzar a bajar
+        team.mom += dmg_cal[1]
+        team.mom_duration += move.duration   #Bonus delay: entre menor el lvl de la carta màs tiempo tarda la barra de momentum en comenzar a bajar
         #remover ataque utilizado
-        w.moves_act.remove(move)
+        team.moves_act.remove(move)
         #reiniciar timer de ataque
         w.atk_timer=0#esto es para ff 10
         last_atk_time=0 #timer de animacion de ataque
@@ -56,18 +69,9 @@ label battle_seq(w,move):
 
         ##Condiciòn de victoria, activan flag para rendir
         if uke.hp <= uke.hp_max * 0.3:
-            renpy.call_screen("battle_seq_screen", w, move, True, dmg_cal, dmg_combo)#rendir
+            renpy.call_screen("battle_seq_screen", team, move, True, dmg_cal, dmg_combo)#rendir
         else:
-            renpy.call_screen("battle_seq_screen", w, move, False, dmg_cal, dmg_combo)#continua la lucha
-
-
-###COMBOS>>
-###attack es llamado desde el boton attack, en el sistema de combate por combos, tambièn se llama automaticamente en battle_seq_screen cuando hay ataque disponibles en la lista(combo)
-label attack(w):
-    python:
-
-        renpy.call("battle_seq", w, w.moves_act[0])
-        ##<<<
+            renpy.call_screen("battle_seq_screen", team, move, False, dmg_cal, dmg_combo)#continua la lucha
 
 
 ######################################################################################

@@ -1,150 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 67, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 35, in script
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 41, in <module>
-    dmg_cal= cal_base_dmg(w,uke,move)   ##calcular daño y mom up
-  File "game/SCRIPT/functions.rpy", line 45, in cal_base_dmg
-    def_skill_stat= uke.def_skill_points[move.type]
-AttributeError: 'int' object has no attribute 'def_skill_points'
+  File "game/SCRIPT/characters.rpy", line 117, in script
+    init python:
+  File "game/SCRIPT/characters.rpy", line 117, in script
+    init python:
+  File "game/SCRIPT/characters.rpy", line 124, in <module>
+    p_team= wrestling_team(members=[mistico, wagner, yukiko])
+  File "game/SCRIPT/characters.rpy", line 13, in __init__
+    sel.moves_act=[]
+NameError: global name 'sel' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 67, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 35, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 35, in script
-    python:
+  File "renpy/bootstrap.py", line 326, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 515, in main
+    renpy.game.context().run(node)
+  File "game/SCRIPT/characters.rpy", line 117, in script
+    init python:
+  File "game/SCRIPT/characters.rpy", line 117, in script
+    init python:
   File "renpy/ast.py", line 913, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2111, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/SCRIPT/battle/battle.rpy", line 41, in <module>
-    dmg_cal= cal_base_dmg(w,uke,move)   ##calcular daño y mom up
-  File "game/SCRIPT/functions.rpy", line 45, in cal_base_dmg
-    def_skill_stat= uke.def_skill_points[move.type]
-AttributeError: 'int' object has no attribute 'def_skill_points'
+  File "game/SCRIPT/characters.rpy", line 124, in <module>
+    p_team= wrestling_team(members=[mistico, wagner, yukiko])
+  File "game/SCRIPT/characters.rpy", line 13, in __init__
+    sel.moves_act=[]
+NameError: global name 'sel' is not defined
 

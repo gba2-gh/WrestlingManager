@@ -1,7 +1,7 @@
 screen timer_screen():#######TODO: Solo se activa timer con p_w
     if battle_sys == 0:#FF10
         timer 0.1 :
-            action [If(len(p_w.moves_act)>0, SetVariable("p_w.atk_timer",p_w.atk_timer+0.1)), If(len(com_w.moves_act)>0, SetVariable("com_w.atk_timer",com_w.atk_timer+0.1)),Call("battle")]
+            action [If(len(p_team.moves_act)>0, SetVariable("p_w.atk_timer",p_w.atk_timer+0.1)), If(len(com_team.moves_act)>0, SetVariable("com_w.atk_timer",com_w.atk_timer+0.1)),Call("battle")]
     elif battle_sys == 1:
         timer 0.1 repeat True action [Call("battle")]
 
@@ -16,19 +16,20 @@ screen timer_screen():#######TODO: Solo se activa timer con p_w
 #Informacion principal de batalla
 screen battle_screen(p_w, com_w):
     modal True
-    use moves_screen(p_w, com_w, 100)
-    use moves_screen(com_w, p_w, 1000)
+    use moves_screen(p_team, com_team, 100)
+    use moves_screen(com_team, p_team, 1000)
 
     text "Round: [round]"  xalign 0.5
 
     #GUI
     #use battle_char_select
     use w_data_screen(p_team, 0.3)
-    use com_data_screen(com_w, 0.7)
+    use com_data_screen(com_team, 0.7)
 
 
 #pantalla de movimientos
-screen moves_screen(tori_w,uke_w, x):
+screen moves_screen(tori_team,uke_team, x):
+    $tori_w = tori_team.members[0]
     modal True
     $y=750
     for move in tori_w.moves:
@@ -36,14 +37,15 @@ screen moves_screen(tori_w,uke_w, x):
         $y =y+50
         if battle_sys == 0: #FF10
             textbutton  "[move.name] /dmg= [move.lvl]": #Sensible si barra de mom es la correcta, alcanza el costo del mov y si no hay otro ataque ya elegido . V2- ataque no elegido no es necesario
-                xpos x ypos y action [SensitiveIf(tori_w.mom_bar_lvl >= move.lvl and tori_w.energy- move.energy_cost >= 0 and len(tori_w.moves_act)<=0), AddToSet(tori_w.moves_act, move), SetVariable("perf_atk_time", last_atk_time)]
+                xpos x ypos y action [SensitiveIf(tori_team.mom_bar_lvl >= move.lvl and tori_w.energy- move.energy_cost >= 0 and len(tori_team.moves_act)<=0), AddToSet(tori_team.moves_act, move), SetVariable("perf_atk_time", last_atk_time)]
 
 
 #Pantalla para la secuencia de ataque
 #Llamado por battle_seq
-screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
+screen battle_seq_screen(team, move, win_c, dmg_cal, dmg_combo):
     modal True
-    $uke=w.atk_target
+    $w=team.members[0]
+    $uke=p_team.atk_target
     use battle_screen(p_w, com_w)
 
     #Animaciòn de battalla}
@@ -60,7 +62,7 @@ screen battle_seq_screen(w, move, win_c, dmg_cal, dmg_combo):
     ##En sistema de COMBOS-Vuelve a llamar a attack si aun hay ataques disponibles.
     ##En sistema FF10 nunca se llama a attack
 
-    timer 5 repeat False action [Hide("battle_seq_screen"), If(len(w.moves_act) >0, Call("attack",w), [SetVariable("uke.hp", uke.hp-dmg_combo), Call("battle")])]
+    timer 5 repeat False action [Hide("battle_seq_screen"), If(len(team.moves_act) >0, Function(find_moves_act, team), [SetVariable("uke.hp", uke.hp-dmg_combo), Call("battle")])]
 
 ######################################################################################
 ######################################################################################

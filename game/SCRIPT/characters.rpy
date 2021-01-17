@@ -5,6 +5,31 @@ init -2 python:
             self.name = "manager"
             self.exp = 0
 
+    class wrestling_team(store.object):
+        def __init__(self, members = []):
+            self.members= members
+            self.rounds_won =0
+            self.atk_target =0
+            self.moves_act=[]
+            #momentum
+            self.mom_max = 50
+            self.mom = 0.0
+            self.mom_down_rate =0.1    ### 1 punto por segundo
+            self.mom_duration=0.0
+            self.mom_bar_lvl =0
+        def mom_update(self):
+            if self.mom_duration > 0:
+                if self.mom >= self.mom_max:
+                    self.mom_bar_lvl +=1
+                    self.mom_max +=10
+                    self.mom =0.0
+                    self.mom_duration=0.0
+                else:
+                    #disminuir barra de momento
+                    self.mom_duration -=1 * self.mom_down_rate
+            elif self.mom_duration <= 0:
+                self.mom = 0.0
+
     class wrestler(store.object):
         def __init__(self, name,strk_atk, power_atk, sub_atk, aerial_atk, strk_def, power_def, sub_def, aerial_def,    speed, str, tech, agi, image="" ):
             global all_shoppers
@@ -94,3 +119,7 @@ init python:
     villano = wrestler("Villano",2, 1, 7, 3, 1, 1, 1, 1,    4, 3,8,2,   image= "images/portrait/villano.png")
     mistico = wrestler("Mistico",2, 1, 4, 6, 1, 1, 1, 1,     2,   2,4,7,  image= "images/portrait/mistico.png")
     yukiko = wrestler("Yukiko",2, 2, 3, 5, 1, 1, 1, 1,       1, 1,1,3, image= Transform("images/portrait/yukiko.jpg", zoom=2.2) )
+
+
+    p_team= wrestling_team(members=[mistico, wagner, yukiko])
+    com_team= wrestling_team(members=[villano, villano, villano])

@@ -10,7 +10,7 @@ label office:
 screen character_select():
     vbox:
         yalign 0.2
-        for w in p_team:
+        for w in p_team.members:
             textbutton "[w.name]" ypos y action SetVariable("chosen_w", w )
 
 screen office_menu():

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/SCRIPT/functions.rpy", line 70: expected an indented block
-    def swap_wrestler():
-    
+File "game/SCRIPT/battle/battle_screens.rpy", line 32: u'tori_w' is not a keyword argument or valid child for the screen statement.
+    tori_w = tori_team.members[0]
+          ^
 
 Ren'Py Version: Ren'Py 7.4.0.1167
-Sat Jan 16 19:51:07 2021
+Sat Jan 16 22:13:08 2021
