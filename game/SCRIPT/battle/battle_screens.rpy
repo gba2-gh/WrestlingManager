@@ -19,12 +19,16 @@ screen battle_screen(p_w, com_w):
     use moves_screen(p_team, com_team, 100)
     use moves_screen(com_team, p_team, 1000)
 
-    text "Round: [round]"  xalign 0.5
+    key "mousedown_4" action Function(swap_wrestler_up, p_team.members)
+    key "mousedown_5" action Function(swap_wrestler_down, p_team.members)
+
 
     #GUI
     #use battle_char_select
+    text "Round: [round]"  xalign 0.5
     use w_data_screen(p_team, 0.3)
     use com_data_screen(com_team, 0.7)
+
 
 
 #pantalla de movimientos

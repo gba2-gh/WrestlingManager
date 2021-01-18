@@ -76,3 +76,25 @@ init python:
 
         team[0], team[ind] = new_active, old_active
         p_w= new_active
+
+    def swap_wrestler_up(members):
+        global p_w
+        uno = members[0]
+        dos = members[1]
+        new_active=members[2]
+
+        members[0] =new_active
+        members[1] =uno
+        members[2] = dos
+        p_w= new_active
+
+    def swap_wrestler_down(members):
+        global p_w
+        uno = members[0]
+        tres = members[2]
+        new_active=members[1]
+
+        members[0] =new_active
+        members[1] =tres
+        members[2] = uno
+        p_w= new_active

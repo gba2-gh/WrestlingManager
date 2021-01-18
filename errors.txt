@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/SCRIPT/battle/battle_screens.rpy", line 32: u'tori_w' is not a keyword argument or valid child for the screen statement.
-    tori_w = tori_team.members[0]
-          ^
+File "game/SCRIPT/functions.rpy", line 87: invalid syntax
+        members[0] new_active
+                             ^
+    
 
 Ren'Py Version: Ren'Py 7.4.0.1167
-Sat Jan 16 22:13:08 2021
+Sun Jan 17 20:08:03 2021
