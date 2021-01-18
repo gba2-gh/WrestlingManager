@@ -8,8 +8,8 @@ screen w_data_screen(team, x):
     $w3= team.members[2]
 
     text "[w.name]" xpos 100 yalign 0.1
-    textbutton "[w2.name]" xpos 80 yalign 0.2 action Function(swap_wrestler, team.members, 1)
-    textbutton "[w3.name]" xpos 60 yalign 0.3 action Function(swap_wrestler, team.members, 2)
+    textbutton "[w2.name]" xpos 80 yalign 0.2 action Function(swap_wrestler_click, team.members, 1)
+    textbutton "[w3.name]" xpos 60 yalign 0.3 action Function(swap_wrestler_click, team.members, 2)
 
     imagebutton idle Transform("images/red_circle.png", zoom=0.7) xpos 0 yalign 0.5
     use bar_screen(w,team, 300, 200, 200, True, False)

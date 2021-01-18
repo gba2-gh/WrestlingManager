@@ -1,58 +1,36 @@
 #label: ataque perfecto, tag, multiplicadores de combo, balancear
 label battle:
     python:
+        #ACTUALIZA LUCHADOR ACTIVO Y RECEPTOR ACTIVO
         p_w=p_team.members[0]
         com_w=com_team.members[0]
         p_team.atk_target = com_w
         com_team.atk_target = p_w
-        #update stamina
 
+        #Actualizar STAMINA para cada luchador
         for w in p_team.members:
             w.energy_update()
-
         for w in com_team.members:
             w.energy_update()
 
-        #update momentum
+        #Actualizar MOMENTUM del equipo
         p_team.mom_update()
         com_team.mom_update()
 
-
-
-
+        #Atacar cuando haya ataques en lista moves_act del equipo. El jugador tiene preferencia
         find_moves_act(p_team)
         find_moves_act(com_team)
-
-        #find_moves_act(p_w)   ##Función de ataque automatico, en cuanto eliges el ataque este se realiza. Sistema de combate anterior
-        #find_moves_act(com_w)
-
-        ##  FF10 >>
-        ##P_W ataca cuando se alcanza attack_delay.
-        #####TODO Implementar el mismo sistema para ambos p_w y com_w
-        #atk_timer empieza a correr cuando se realiza un ataque
-        # if p_w.atk_timer > p_w.atk_delay:
-        #     renpy.call("battle_seq", p_w, p_w.moves_act[0])
-        #
-        # if com_w.atk_timer > com_w.atk_delay:
-        #     renpy.call("battle_seq", com_w, com_w.moves_act[0])
-        #     #find_moves_act(p_w)
-        #     #Find move busca en la lista moves act del personaje y llama a battle_seq
-        #     ##<<  FF10
-
 
         renpy.call_screen("timer_screen")
 
 #label: CAMBIOS OCURRIDOS AL REALIZAR UN MOVIMIENTO
 label battle_seq(team,move):
     python:
+        #Atacante y receptor
         w=team.members[0]
-        ###SISTEMA DE COMBATE FF10
-        #calcular bonus por triangulo
-        #bonus = move_bonus_tri(w, move)##move[0], el ùnico mov en la lista
         uke= team.atk_target
-        #disminuir hp de receptor
+        #CALCULAR DAÑO Y SUMARLO AL COMBO
         dmg_cal= cal_base_dmg(w,uke,move)   ##calcular daño y mom up
-        #uke.hp -= dmg_cal[0]
         dmg_combo += dmg_cal[0]
         #Energy del atacante disminuye
         w.energy -=move.energy_cost
@@ -63,7 +41,6 @@ label battle_seq(team,move):
         #remover ataque utilizado
         team.moves_act.remove(move)
         #reiniciar timer de ataque
-        w.atk_timer=0#esto es para ff 10
         last_atk_time=0 #timer de animacion de ataque
         perf_atk_time=0
 

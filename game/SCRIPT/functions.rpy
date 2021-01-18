@@ -46,7 +46,7 @@ init python:
         def_skill_stat= uke.def_skill_points[move.type]
         atk_base_stat= tori.base_stats[move.type]
 
-        card_mult=1 #aun no se implementa
+        card_mult=1 #TODO aun no se implementa
         def_bonus=1 #aun no se implementa
         #defensa
 
@@ -58,7 +58,7 @@ init python:
         #     uke_defense=1
 
 
-        atk_bonus=1#aun no se implementa
+        atk_bonus=1#TODO aun no se implementa
         #Mom up
         mom_up= move.mom_mult * uke_defense * atk_skill_stat * atk_bonus
 
@@ -68,7 +68,7 @@ init python:
         return [dmg, mom_up, uke_defense]
 
 
-    def swap_wrestler(team, ind):
+    def swap_wrestler_click(team, ind):
         global p_w
 
         old_active=team[0]
@@ -79,6 +79,7 @@ init python:
 
     def swap_wrestler_up(members):
         global p_w
+        #HACK
         uno = members[0]
         dos = members[1]
         new_active=members[2]
@@ -90,6 +91,7 @@ init python:
 
     def swap_wrestler_down(members):
         global p_w
+        #HACK
         uno = members[0]
         tres = members[2]
         new_active=members[1]

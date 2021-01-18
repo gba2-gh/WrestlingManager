@@ -3,6 +3,7 @@ label main_menu:
     return
 label start:
     python:
+        renpy.block_rollback()
         #renpy.jump("office") #[menu.rpy]
 
         #Llamar screen para seleciconar luchador [menu_screens.rpy]
@@ -13,9 +14,6 @@ label start:
         #com_w.atk_target=p_w
 
         #renpy.jump("battle")
-        renpy.block_rollback()
-
-
 
         chosen_w=p_team.members[0]#chosen se utiliza en los menus
         p_w =p_team.members[0] #SE UTILIZAN EN BATTLE
@@ -26,8 +24,6 @@ label start:
         #com_w.atk_target=p_w
 
         renpy.jump("move_swap")
-
-
 
         narrator("Cambiar movs?", interact=False)
         result = renpy.display_menu([ ("SI", "move_swap"), ("NO", "battle") ]) #battle en battle.rpy
