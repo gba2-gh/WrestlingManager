@@ -7,11 +7,7 @@ screen timer_screen():#######TODO: Solo se activa timer con p_w
 
 
     use battle_screen(p_w, com_w)
-    #Mostrar pantalla de timer de ataque cuando se hace un movimiento, Sòlo en FF10
-    # if p_w.atk_timer > 0 and p_w.atk_timer < p_w.atk_delay:
-    #     use atk_timer_screen(p_w)
-    # if com_w.atk_timer > 0 and com_w.atk_timer < com_w.atk_delay:
-    #     use atk_timer_screen(com_w)
+
 
 #Informacion principal de batalla
 screen battle_screen(p_w, com_w):

@@ -11,6 +11,7 @@ init -2 python:
             self.rounds_won =0
             self.atk_target =0
             self.moves_act=[]
+            self.tagging_meter=0
             #momentum
             self.mom_max = 50
             self.mom = 0.0

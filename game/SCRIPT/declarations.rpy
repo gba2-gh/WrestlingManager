@@ -11,6 +11,7 @@ init python:
 
 define battle_sys=0 ##Sistema de combate a utilizar: 0==FG10, 1==FF13
 define perf_atk_time=0
+define energy_delay=5.0
 
 define start_timer =False
 define day =1
