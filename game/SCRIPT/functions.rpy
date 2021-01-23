@@ -81,7 +81,7 @@ init python:
         team.dmg_cal = dmg_cal
         team.dmg_combo = dmg_cal[0]
         #Energy del atacante disminuye
-        w.energy -=move.energy_cost
+        #w.energy -=move.energy_cost
         #w.energy_combo=0
         #aumentar momentum del atacante
         team.mom += dmg_cal[1]
@@ -89,6 +89,9 @@ init python:
         #remover ataque utilizado
         team.moves_act.remove(move)
         #reiniciar timer de ataque
+        if perf_atk_time > move.anim_duration +.2 or perf_atk_time < move.anim_duration -.2:
+            w.energy -=(move.energy_cost/2)
+
         last_atk_time=0 #timer de animacion de ataque
         perf_atk_time=0
         if team.def_flag:

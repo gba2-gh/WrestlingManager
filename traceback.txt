@@ -1,61 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script
     python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 28, in script
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 29, in <module>
-    renpy.call_screen("battle_seq_screen_uno", team, move)
-  File "game/SCRIPT/battle/battle_screens.rpy", line 46, in execute
-    screen battle_seq_screen_uno(team, move):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 46, in execute
-    screen battle_seq_screen_uno(team, move):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 57, in execute
-    timer move.anim_duration repeat False action [Function(battle_seq_func,team,move), Show(battle_seq_screen_dos, team, move)]
-  File "game/SCRIPT/battle/battle_screens.rpy", line 57, in keywords
-    timer move.anim_duration repeat False action [Function(battle_seq_func,team,move), Show(battle_seq_screen_dos, team, move)]
-  File "game/SCRIPT/battle/battle_screens.rpy", line 57, in <module>
-    timer move.anim_duration repeat False action [Function(battle_seq_func,team,move), Show(battle_seq_screen_dos, team, move)]
-NameError: name 'battle_seq_screen_dos' is not defined
+  File "game/SCRIPT/battle/battle.rpy", line 24, in <module>
+    renpy.call_screen("timer_screen")
+  File "renpy/common/00action_data.rpy", line 79, in get_selected
+    return __get_field(self.object, self.field, self.kind) == self.value
+  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
+    raise NameError("The {} {} does not exist.".format(kind, name))
+NameError: The variable tori_w.energy does not exist.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script call
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 28, in script
+  File "game/SCRIPT/battle/battle.rpy", line 3, in script
     python:
   File "renpy/ast.py", line 913, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2111, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/SCRIPT/battle/battle.rpy", line 29, in <module>
-    renpy.call_screen("battle_seq_screen_uno", team, move)
+  File "game/SCRIPT/battle/battle.rpy", line 24, in <module>
+    renpy.call_screen("timer_screen")
   File "renpy/exports.py", line 2969, in call_screen
     rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
   File "renpy/ui.py", line 298, in interact
@@ -70,23 +36,27 @@ Full traceback:
     d.visit_all(callback, seen)
   File "renpy/display/core.py", line 566, in visit_all
     d.visit_all(callback, seen)
-  File "renpy/display/screen.py", line 432, in visit_all
+  File "renpy/display/screen.py", line 437, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "renpy/display/core.py", line 566, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
     callback(self)
   File "renpy/display/core.py", line 3378, in <lambda>
     root_widget.visit_all(lambda i : i.per_interact())
-  File "renpy/display/screen.py", line 443, in per_interact
-    self.update()
-  File "renpy/display/screen.py", line 631, in update
-    self.screen.function(**self.scope)
-  File "game/SCRIPT/battle/battle_screens.rpy", line 46, in execute
-    screen battle_seq_screen_uno(team, move):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 46, in execute
-    screen battle_seq_screen_uno(team, move):
-  File "game/SCRIPT/battle/battle_screens.rpy", line 57, in execute
-    timer move.anim_duration repeat False action [Function(battle_seq_func,team,move), Show(battle_seq_screen_dos, team, move)]
-  File "game/SCRIPT/battle/battle_screens.rpy", line 57, in keywords
-    timer move.anim_duration repeat False action [Function(battle_seq_func,team,move), Show(battle_seq_screen_dos, team, move)]
-  File "game/SCRIPT/battle/battle_screens.rpy", line 57, in <module>
-    timer move.anim_duration repeat False action [Function(battle_seq_func,team,move), Show(battle_seq_screen_dos, team, move)]
-NameError: name 'battle_seq_screen_dos' is not defined
+  File "renpy/display/behavior.py", line 864, in per_interact
+    if self.is_selected():
+  File "renpy/display/behavior.py", line 852, in is_selected
+    return is_selected(self.action)
+  File "renpy/display/behavior.py", line 391, in is_selected
+    return any(is_selected(i) for i in action)
+  File "renpy/display/behavior.py", line 391, in <genexpr>
+    return any(is_selected(i) for i in action)
+  File "renpy/display/behavior.py", line 394, in is_selected
+    return action.get_selected()
+  File "renpy/common/00action_data.rpy", line 79, in get_selected
+    return __get_field(self.object, self.field, self.kind) == self.value
+  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
+    raise NameError("The {} {} does not exist.".format(kind, name))
+NameError: The variable tori_w.energy does not exist.
 

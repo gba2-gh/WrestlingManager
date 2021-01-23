@@ -1,4 +1,4 @@
-Sat Jan 23 02:53:01 2021
+Sat Jan 23 03:17:59 2021
 Windows-10-10.0.19041
 Ren'Py 7.4.0.1167
  
@@ -6,16 +6,15 @@ Ren'Py 7.4.0.1167
 Bootstrap to the start of init.init took 0.11s
 Early init took 0.00s
 Loader init took 0.03s
-Loading error handling took 0.03s
-Loading script took 0.23s
-Loading save slot metadata. took 0.02s
+Loading error handling took 0.04s
+Loading script took 0.17s
+Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.08s
-Loading analysis data took 0.22s
+Loading analysis data took 0.23s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\gba2\\AppData\\Roaming/RenPy/backups\\WrestlingManager':
 Dump and make backups. took 0.11s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
@@ -23,17 +22,17 @@ Initial gc. took 0.06s
 DPI scale factor: 1.000000
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.09s
+Init translation took 0.08s
 Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.12s
-Prepare screens took 0.12s
-Save pyanalysis. took 0.88s
-Save bytecode. took 0.05s
+Load screen analysis took 0.10s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.14s
+Interface start took 0.15s
 
 primary display bounds: (0, 0, 1360, 768)
 swap interval: 1 frames
@@ -449,4 +448,4 @@ Screen sizes: virtual=(1920, 1080) physical=(1184, 666) drawable=(1184, 666)
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
 controller: '030000005e040000ff02000000007801' 'XInput Controller' 1L
-Total time until interface ready: 2.87130117416s
+Total time until interface ready: 1.89494681358s

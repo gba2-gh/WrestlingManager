@@ -67,7 +67,7 @@ screen battle_seq_screen_dos():
         text "Mom up: [team.dmg_cal[1]:.5]    Daño: [team.dmg_cal[0]:.5]     def: [team.dmg_cal[2]:.5]"
 
 
-#Llamado por battle_seq########BORRAR
+#Llamado por battle_seq
 screen battle_seq_screen(team, move, win_c, dmg_cal, dmg_combo):
     modal True
     $w=team.members[0]
@@ -83,7 +83,16 @@ screen battle_seq_screen(team, move, win_c, dmg_cal, dmg_combo):
         text "damage:[dmg_combo]"
         text "Animación para: [move.name]"
         text "Mom up: [dmg_cal[1]:.5]    Daño: [dmg_cal[0]:.5]     def: [dmg_cal[2]:.5]"
-er 5 repeat False action [Hide("battle_seq_screen"), If(len(team.moves_act) >0, Function(find_moves_act, team), [SetVariable("team.support", team.support + dmg_combo), Call("battle")])]
+    #Opciòn para rendir si existe la condiciòn win_c. Esto se decide en battle_seq
+    if win_c:
+        if move.type==2:
+            textbutton "[w.name]: Surrender?" xalign 0.5 yalign 0.7 action Call("pin_try", w, move.type)
+        elif move.type>0:
+            textbutton "[w.name]: Pin?" xalign 0.5 yalign 0.7 action Call("pin_try", w, move.type)
+    ##En sistema de COMBOS-Vuelve a llamar a attack si aun hay ataques disponibles.
+    ##En sistema FF10 nunca se llama a attack
+
+    timer 5 repeat False action [Hide("battle_seq_screen"), If(len(team.moves_act) >0, Function(find_moves_act, team), [SetVariable("team.support", team.support + dmg_combo), Call("battle")])]
 
 ######################################################################################
 ######################################################################################

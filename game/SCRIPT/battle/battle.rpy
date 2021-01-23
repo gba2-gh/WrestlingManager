@@ -26,6 +26,8 @@ label battle:
 
 label battle_seq_uno(team, move):
     python:
+        w=team.members[0]
+        w.energy -= move.energy_cost 
         renpy.call_screen("battle_seq_screen_uno", team, move)
 
 

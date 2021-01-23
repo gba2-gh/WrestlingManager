@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/SCRIPT/characters.rpy", line 16: invalid syntax
-            self:def_flag =False
-                 ^
-    
+File "game/SCRIPT/battle/battle_screens.rpy", line 86: expected statement.
+    er 5 repeat False action [Hide("battle_seq_screen"), If(len(team.moves_act) >0, Function(find_moves_act, team), [SetVariable("team.support", team.support + dmg_combo), Call("battle")])]
+                             ^
 
 Ren'Py Version: Ren'Py 7.4.0.1167
-Sat Jan 23 00:24:02 2021
+Sat Jan 23 02:58:34 2021
