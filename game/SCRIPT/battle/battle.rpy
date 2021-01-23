@@ -23,15 +23,20 @@ label battle:
 
         renpy.call_screen("timer_screen")
 
-
+#label: CAMBIOS OCURRIDOS AL REALIZAR UN MOVIMIENTO
 label battle_seq_uno(team, move):
     python:
         w=team.members[0]
-        w.energy -= move.energy_cost 
+        if team.perf_atk_flag:
+            w.energy -= move.energy_cost *.7
+            team.perf_atk_flag=False
+        else:
+            w.energy -= move.energy_cost
+        last_atk_time = 0
         renpy.call_screen("battle_seq_screen_uno", team, move)
 
 
-#label: CAMBIOS OCURRIDOS AL REALIZAR UN MOVIMIENTO
+#label: CAMBIOS OCURRIDOS AL REALIZAR UN MOVIMIENTO#######BORRAR
 label battle_seq(team,move):
     python:
         #Atacante y receptor

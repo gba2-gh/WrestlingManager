@@ -31,7 +31,7 @@ screen main_com_data_screen():
         text "r_w: [com_team.rounds_won]" xalign 1
         text "Support: [com_team.support]" xalign 0.7
         imagebutton idle Transform("images/red_circle.png", zoom=0.7) xalign 0.8 yalign 0.3
-        
+
         #use main_bar_screen(w,team, 300, 200, 200, True, False)
         use energy_bar_screen(com_team, 0.9,0.65)
         use momentum_bar_screen(com_team, 0.6,0.5, True, bar_full_inv, bar_empty_inv)
@@ -64,9 +64,9 @@ screen energy_bar_screen(team, x_pos, y_pos):
 screen momentum_bar_screen(team, x_pos,y_pos, mom_inv, bar_full, bar_empty):
     vbox:
         xalign x_pos yalign y_pos
-        bar value AnimatedValue(team.mom, range=team.mom_max, delay = 5.0 )left_bar Frame(bar_full,5,5) right_bar Frame(bar_empty,5,5):
+        bar value AnimatedValue(team.mom, range=team.mom_max, delay = 2.0 )left_bar Frame(bar_full,5,5) right_bar Frame(bar_empty,5,5):
             thumb None bar_invert mom_inv xmaximum 400 ymaximum 10
-        bar value AnimatedValue(team.mom_duration, range=team.mom_max, delay = 5.0 )left_bar Frame(bar_full,5,5) right_bar Frame(bar_empty,5,5):
+        bar value AnimatedValue(team.mom_duration, range=team.mom_max, delay = 2.0 )left_bar Frame(bar_full,5,5) right_bar Frame(bar_empty,5,5):
             thumb None bar_invert mom_inv xmaximum 400 ymaximum 10
     #TEXTO
     vbox:

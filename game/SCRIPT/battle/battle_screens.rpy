@@ -28,7 +28,6 @@ screen battle_screen(p_w, com_w):
     use main_com_data_screen()
 
 
-
 #pantalla de movimientos
 screen moves_screen(tori_team,uke_team, x):
     $tori_w = tori_team.members[0]
@@ -50,7 +49,7 @@ screen battle_seq_screen_uno(team, move):
     use battle_screen(p_w, com_w)
     textbutton "defense si([team.def_flag])" xalign 0.8 yalign 0.3 action SetVariable("team.def_flag", True)
     textbutton "defense no([team.def_flag])" xalign 0.8 yalign 0.35 action SetVariable("team.def_flag", False)
-
+    text "[team.perf_atk_flag]" xalign 0.8 yalign 0.4
     #Animaciòn de battalla}
     use perf_atk_screen()
 
@@ -67,7 +66,7 @@ screen battle_seq_screen_dos():
         text "Mom up: [team.dmg_cal[1]:.5]    Daño: [team.dmg_cal[0]:.5]     def: [team.dmg_cal[2]:.5]"
 
 
-#Llamado por battle_seq
+#Llamado por battle_seq###BORRAR
 screen battle_seq_screen(team, move, win_c, dmg_cal, dmg_combo):
     modal True
     $w=team.members[0]

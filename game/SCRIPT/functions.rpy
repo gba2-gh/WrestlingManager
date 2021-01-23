@@ -89,8 +89,8 @@ init python:
         #remover ataque utilizado
         team.moves_act.remove(move)
         #reiniciar timer de ataque
-        if perf_atk_time > move.anim_duration +.2 or perf_atk_time < move.anim_duration -.2:
-            w.energy -=(move.energy_cost/2)
+        if perf_atk_time < move.anim_duration +.2 or perf_atk_time > move.anim_duration -.2:
+            team.perf_atk_flag=True
 
         last_atk_time=0 #timer de animacion de ataque
         perf_atk_time=0

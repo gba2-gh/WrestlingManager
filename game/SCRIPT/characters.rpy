@@ -16,6 +16,7 @@ init -2 python:
             self.def_flag =False
             self.dmg_cal=0
             self.dmg_combo=0
+            self.perf_atk_flag=False
 
             #momentum
             self.mom_max = 50
