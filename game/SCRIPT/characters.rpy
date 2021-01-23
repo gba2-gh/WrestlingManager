@@ -12,12 +12,18 @@ init -2 python:
             self.atk_target =0
             self.moves_act=[]
             self.tagging_meter=0
+            self.support =0
+            self.def_flag =False
+            self.dmg_cal=0
+            self.dmg_combo=0
+
             #momentum
             self.mom_max = 50
             self.mom = 0.0
             self.mom_down_rate =0.1    ### 1 punto por segundo
             self.mom_duration=0.0
             self.mom_bar_lvl =0
+
         def mom_update(self):
             if self.mom_duration > 0:
                 if self.mom >= self.mom_max:
@@ -39,7 +45,7 @@ init -2 python:
             ###skill_stats
 
 
-
+            self.def_flag=False
             self.atk_skill_points= [strk_atk, power_atk, sub_atk, aerial_atk ]
             self.def_skill_points =[strk_def, power_def, sub_def, aerial_def ]
             ###training points STA

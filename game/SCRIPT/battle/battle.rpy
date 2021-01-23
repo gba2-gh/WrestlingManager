@@ -23,6 +23,12 @@ label battle:
 
         renpy.call_screen("timer_screen")
 
+
+label battle_seq_uno(team, move):
+    python:
+        renpy.call_screen("battle_seq_screen_uno", team, move)
+
+
 #label: CAMBIOS OCURRIDOS AL REALIZAR UN MOVIMIENTO
 label battle_seq(team,move):
     python:
@@ -43,6 +49,11 @@ label battle_seq(team,move):
         #reiniciar timer de ataque
         last_atk_time=0 #timer de animacion de ataque
         perf_atk_time=0
+        if team.def_flag:
+            uke.energy -= (move.energy_cost / 2)#BORRAR
+            team.mom -= (dmg_cal[1]/2)
+            team.mom_duration -= (move.duration/2)
+            uke.def_flag=False
 
         ##Condiciòn de victoria, activan flag para rendir
         if uke.hp <= uke.hp_max * 0.3:

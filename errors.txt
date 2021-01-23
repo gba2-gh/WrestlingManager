@@ -2,10 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/SCRIPT/functions.rpy", line 87: invalid syntax
-        members[0] new_active
-                             ^
+File "game/SCRIPT/characters.rpy", line 16: invalid syntax
+            self:def_flag =False
+                 ^
     
 
 Ren'Py Version: Ren'Py 7.4.0.1167
-Sun Jan 17 20:08:03 2021
+Sat Jan 23 00:24:02 2021
