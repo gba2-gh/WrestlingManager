@@ -5,7 +5,7 @@ screen select_screen(texto, x):
     for wrestler in all_wrestlers:
         $y =y+200
         #wrestler.restart()
-        imagebutton idle Transform(wrestler.image, zoom=0.5) xpos x ypos y hovered Function(renpy.show_screen, "select_w_data",wrestler.name) unhovered Hide("select_w_data") action [Hide("select_w_data"), Return(wrestler)]
+        imagebutton idle Transform(wrestler.img_portrait, zoom=0.5) xpos x ypos y hovered Function(renpy.show_screen, "select_w_data",wrestler.name) unhovered Hide("select_w_data") action [Hide("select_w_data"), Return(wrestler)]
 
 #Despliega información del luchador a elegir (Tooltip)
 screen select_w_data(x):

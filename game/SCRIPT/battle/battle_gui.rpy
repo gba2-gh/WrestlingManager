@@ -9,17 +9,35 @@ screen main_w_data_screen():
     $global p_team
     $global bar_full
     $global bar_empty
-    #w= p_team.members[0]
+    $w= p_team.members[0]
     #$w2= p_team.members[1]
     #$w3= p_team.members[2]
     fixed:
+
         text "r_w: [p_team.rounds_won]"
         text "Support: [p_team.support]" xalign 0.3
-        imagebutton idle Transform("images/red_circle.png", zoom=0.7) xalign 0.2 yalign 0.3
+        imagebutton idle Transform(w.img_battle, zoom=1) xalign 0.1 yalign 0.3
         #use main_bar_screen(w,team, 300, 200, 200, True, False)
+        use rombo_screen(p_team, 0.1,0.65)
         use energy_bar_screen(p_team, 0.1,0.65)
         use momentum_bar_screen(p_team, 0.3,0.5, False, bar_full, bar_empty)
 
+
+screen rombo_screen(team, x_pos, y_pos):
+        $w= team.members[0]
+        $w2= team.members[1]
+        $w3= team.members[2]
+        #BARRA ENERGY
+        hbox:
+            xalign x_pos yalign y_pos
+            add "images/rombo.png"
+        hbox:
+            xalign x_pos-.1 yalign y_pos-.05
+            add "images/rombo.png"
+
+        hbox:
+            xalign x_pos-.1 yalign y_pos+.05
+            add "images/rombo.png"
 
 
 screen main_com_data_screen():
@@ -30,9 +48,10 @@ screen main_com_data_screen():
     fixed:
         text "r_w: [com_team.rounds_won]" xalign 1
         text "Support: [com_team.support]" xalign 0.7
-        imagebutton idle Transform("images/red_circle.png", zoom=0.7) xalign 0.8 yalign 0.3
+        imagebutton idle Transform(w.img_battle, zoom=0.85) xalign 0.9 yalign 0.3
 
         #use main_bar_screen(w,team, 300, 200, 200, True, False)
+
         use energy_bar_screen(com_team, 0.9,0.65)
         use momentum_bar_screen(com_team, 0.6,0.5, True, bar_full_inv, bar_empty_inv)
 

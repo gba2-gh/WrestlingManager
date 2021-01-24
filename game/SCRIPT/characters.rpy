@@ -39,10 +39,11 @@ init -2 python:
                 self.mom = 0.0
 
     class wrestler(store.object):
-        def __init__(self, name,strk_atk, power_atk, sub_atk, aerial_atk, strk_def, power_def, sub_def, aerial_def,    speed, str, tech, agi, image="" ):
+        def __init__(self, name,strk_atk, power_atk, sub_atk, aerial_atk, strk_def, power_def, sub_def, aerial_def,    speed, str, tech, agi, img_portrait="", img_battle="" ):
             global all_shoppers
             self.name = name
-            self.image=image
+            self.img_portrait=img_portrait
+            self.img_battle=img_battle
             ###skill_stats
 
 
@@ -123,11 +124,13 @@ init -2 python:
 
 ## 0 =F ; 1=D ; 2 =D+ ; 3=C; 4=C+; 5=B; 6=B+; 7=A; 8= A+; 9=S; 10=S+
 init python:
-    wagner = wrestler("Wagner",5, 7, 3, 3, 1, 1, 1, 1,      6, 7,4,3, image= "images/portrait/wagner.png")
-    villano = wrestler("Villano",2, 1, 7, 3, 1, 1, 1, 1,    4, 3,8,2,   image= "images/portrait/villano.png")
-    mistico = wrestler("Mistico",2, 1, 4, 6, 1, 1, 1, 1,     2,   2,4,7,  image= "images/portrait/mistico.png")
-    yukiko = wrestler("Yukiko",2, 2, 3, 5, 1, 1, 1, 1,       1, 1,1,3, image= Transform("images/portrait/yukiko.jpg", zoom=2.2) )
+    wagner = wrestler("Wagner",5, 7, 3, 3, 1, 1, 1, 1,      6, 7,4,3, img_portrait= "images/portrait/wagner.png", img_battle="images/char/def_char.png")
+    villano = wrestler("Villano",2, 1, 7, 3, 1, 1, 1, 1,    4, 3,8,2,   img_portrait= "images/portrait/villano.png", img_battle="images/char/def_char.png")
+    mistico = wrestler("Mistico",2, 1, 4, 6, 1, 1, 1, 1,     2,   2,4,7,  img_portrait= "images/portrait/mistico.png", img_battle="images/char/def_char.png")
+    yukiko = wrestler("Yukiko",2, 2, 3, 5, 1, 1, 1, 1,       1, 1,1,3, img_portrait= Transform("images/portrait/yukiko.jpg", zoom=2.2), img_battle="images/char/def_char.png" )
+    angel =  wrestler("Angel",2, 1, 4, 6, 1, 1, 1, 1,     2,   2,4,7,  img_portrait= "images/portrait/yukiko.png", img_battle="images/char/angel_char.png")
+    mika =  wrestler("Mika",2, 1, 4, 6, 1, 1, 1, 1,     2,   2,4,7,  img_portrait= "images/portrait/yukiko.png", img_battle="images/char/mika_char.png")
 
 
-    p_team= wrestling_team(members=[mistico, wagner, yukiko])
-    com_team= wrestling_team(members=[villano, villano, villano])
+    p_team= wrestling_team(members=[angel, wagner, yukiko])
+    com_team= wrestling_team(members=[mika, villano, mistico])

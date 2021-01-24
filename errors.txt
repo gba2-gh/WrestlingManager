@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/SCRIPT/battle/battle_screens.rpy", line 86: expected statement.
-    er 5 repeat False action [Hide("battle_seq_screen"), If(len(team.moves_act) >0, Function(find_moves_act, team), [SetVariable("team.support", team.support + dmg_combo), Call("battle")])]
-                             ^
+File "game/SCRIPT/battle/battle_gui.rpy", line 16: u'zorder' is not a keyword argument or valid child for the fixed statement.
+    zorder -1
+          ^
 
 Ren'Py Version: Ren'Py 7.4.0.1167
-Sat Jan 23 02:58:34 2021
+Sat Jan 23 16:40:31 2021

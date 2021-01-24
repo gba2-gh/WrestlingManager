@@ -1,62 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script
-    python:
-  File "game/SCRIPT/battle/battle.rpy", line 24, in <module>
-    renpy.call_screen("timer_screen")
-  File "renpy/common/00action_data.rpy", line 79, in get_selected
-    return __get_field(self.object, self.field, self.kind) == self.value
-  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
-    raise NameError("The {} {} does not exist.".format(kind, name))
-NameError: The variable tori_w.energy does not exist.
+After initialization, but before game start.
+  File "game/SCRIPT/battle/battle_gui.rpy", line 8, in prepare_screen
+    screen main_w_data_screen():
+  File "game/SCRIPT/battle/battle_gui.rpy", line 8, in prepare
+    screen main_w_data_screen():
+  File "game/SCRIPT/battle/battle_gui.rpy", line 15, in prepare
+    fixed:
+  File "game/SCRIPT/battle/battle_gui.rpy", line 15, in prepare
+    fixed:
+Exception: A screen named rombo_screen does not exist.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/SCRIPT/battle/battle.rpy", line 3, in script
-    python:
-  File "renpy/ast.py", line 913, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "renpy/python.py", line 2111, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/SCRIPT/battle/battle.rpy", line 24, in <module>
-    renpy.call_screen("timer_screen")
-  File "renpy/exports.py", line 2969, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "renpy/display/core.py", line 2978, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "renpy/display/core.py", line 3378, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "renpy/display/core.py", line 566, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/core.py", line 566, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/core.py", line 566, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/screen.py", line 437, in visit_all
-    self.child.visit_all(callback, seen=None)
-  File "renpy/display/core.py", line 566, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/core.py", line 568, in visit_all
-    callback(self)
-  File "renpy/display/core.py", line 3378, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "renpy/display/behavior.py", line 864, in per_interact
-    if self.is_selected():
-  File "renpy/display/behavior.py", line 852, in is_selected
-    return is_selected(self.action)
-  File "renpy/display/behavior.py", line 391, in is_selected
-    return any(is_selected(i) for i in action)
-  File "renpy/display/behavior.py", line 391, in <genexpr>
-    return any(is_selected(i) for i in action)
-  File "renpy/display/behavior.py", line 394, in is_selected
-    return action.get_selected()
-  File "renpy/common/00action_data.rpy", line 79, in get_selected
-    return __get_field(self.object, self.field, self.kind) == self.value
-  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
-    raise NameError("The {} {} does not exist.".format(kind, name))
-NameError: The variable tori_w.energy does not exist.
+  File "renpy/bootstrap.py", line 326, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 617, in main
+    run(restart)
+  File "renpy/main.py", line 97, in run
+    renpy.display.screen.prepare_screens()
+  File "renpy/display/screen.py", line 939, in prepare_screens
+    s.ast.prepare_screen()
+  File "game/SCRIPT/battle/battle_gui.rpy", line 8, in prepare_screen
+    screen main_w_data_screen():
+  File "game/SCRIPT/battle/battle_gui.rpy", line 8, in prepare
+    screen main_w_data_screen():
+  File "game/SCRIPT/battle/battle_gui.rpy", line 15, in prepare
+    fixed:
+  File "game/SCRIPT/battle/battle_gui.rpy", line 15, in prepare
+    fixed:
+  File "renpy/sl2/slast.py", line 1791, in prepare
+    raise Exception("A screen named {} does not exist.".format(self.target))
+Exception: A screen named rombo_screen does not exist.
 

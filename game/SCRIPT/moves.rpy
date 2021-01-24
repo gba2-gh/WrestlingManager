@@ -7,7 +7,7 @@ init-2  python:
     aerial_moves=[]
     class move(store.object):
 
-        def __init__(self,name, type , lvl, rank ): #rank de A a F, lvl nivel momentum
+        def __init__(self,name, type , lvl, rank, img_card="" ): #rank de A a F, lvl nivel momentum
             global all_moves
             global strike_moves
             global power_moves
@@ -19,6 +19,7 @@ init-2  python:
             self.rank =rank-1
             self.lvl=lvl
             self.anim_duration=2
+            self.img_card=img_card
 
             ##Valores base de los castigos:: Modificar constantes
             self.energy_cost = 20
@@ -93,11 +94,11 @@ init-2  python:
 init -1 python:
     ##################STRIKES
     #####LVL 0
-    bchop=move("Backhand Chop", 0, 0, 1)
-    belbow = move("Back Elbow", 0, 0, 2)
-    skick = move("Super Kick", 0, 0, 3)
-    euppercut = move("European Uppercut", 0, 0, 4)
-    csline= move("Clothesline", 0, 0, 5)
+    bchop=move("Backhand Chop", 0, 0, 1, img_card="images/cards/bchop_card.png")
+    # belbow = move("Back Elbow", 0, 0, 2)
+    # skick = move("Super Kick", 0, 0, 3)
+    # euppercut = move("European Uppercut", 0, 0, 4)
+    # csline= move("Clothesline", 0, 0, 5)
     #####LVL 1
     # ldrop = move("Leg Drop", 0, 1, 1)
     # hbutt = move("Headbutt", 0, 1, 2)
@@ -114,11 +115,11 @@ init -1 python:
     #POWER
 
     #####LVL 0
-    bbreaker=move("Back breaker", 1, 0, 1)
-    adrop = move("Atomic Drop", 1, 0, 2)
-    suplex = move("Suplex", 1, 0, 3)
-    powerslam = move("Powerslam", 1, 0, 4)
-    brainbuster= move("Brainbuster", 1, 0, 5)
+    bbreaker=move("Back breaker", 1, 0, 1, img_card="images/cards/bbreaker_card.png")
+    # adrop = move("Atomic Drop", 1, 0, 2)
+    # suplex = move("Suplex", 1, 0, 3)
+    # powerslam = move("Powerslam", 1, 0, 4)
+    # brainbuster= move("Brainbuster", 1, 0, 5)
     #####LVL 1
     # bcracker = move("Backcracker", 1, 1, 1)
     # catapult = move("Catapult", 1, 1, 2)
@@ -134,11 +135,11 @@ init -1 python:
 
 
     ########SUBMISSION
-    candado=move("Candado al cuello", 2, 0, 1)
-    nelson = move("Nelson", 2, 0, 2)
-    tirabuzon = move("Tirabuzón", 2, 0, 3)
-    figuref = move("Figura 4", 2, 0, 4)
-    fujiwara= move("Palanca Fujiwara", 2, 0, 5)
+    candado=move("Candado al cuello", 2, 0, 1, img_card="images/cards/candado_card.png")
+    # nelson = move("Nelson", 2, 0, 2)
+    # tirabuzon = move("Tirabuzón", 2, 0, 3)
+    # figuref = move("Figura 4", 2, 0, 4)
+    # fujiwara= move("Palanca Fujiwara", 2, 0, 5)
     #####LVL 1
     # sleeper = move("Sleeper hold", 2, 1, 1)
     # caballo = move("De a caballo", 2, 1, 2)
@@ -154,11 +155,11 @@ init -1 python:
 
 
     #AERIAL
-    fkicks=move("Flying kicks", 3, 0, 1)
-    legmoon = move("Split leg moonsault", 3, 0, 2)
-    dcrossbody = move("Diving crossbody", 3, 0, 3)
-    fbpress = move("Flying body press", 3, 0, 4)
-    moonlegdrop= move("Moonsault leg drop", 3, 0, 5)
+    fkicks=move("Flying kicks", 3, 0, 1, img_card="images/cards/fkicks_card.png")
+    # legmoon = move("Split leg moonsault", 3, 0, 2)
+    # dcrossbody = move("Diving crossbody", 3, 0, 3)
+    # fbpress = move("Flying body press", 3, 0, 4)
+    # moonlegdrop= move("Moonsault leg drop", 3, 0, 5)
     #####LVL 1
     # enzuiguiri = move("Enzuiguiri", 3, 1, 1)
     # tope = move("tope suicida", 3, 1, 2)
@@ -198,16 +199,21 @@ init python:
                 w.moves.append(m)
 
     add_random_moves(wagner)
-    #add_random_moves(mistico)
+    add_random_moves(mistico)
     add_random_moves(yukiko)
     add_random_moves(villano)
 
-    mov =mistico.moves
+    mov =angel.moves
     mov.append(bchop)
     mov.append(candado)
     mov.append(bbreaker)
     mov.append(fkicks)
 
+    mov =mika.moves
+    mov.append(bchop)
+    mov.append(candado)
+    mov.append(bbreaker)
+    mov.append(fkicks)
 
     mov= wagner.moves
     mov.append(candado)

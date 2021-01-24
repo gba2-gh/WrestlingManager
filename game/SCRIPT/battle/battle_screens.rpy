@@ -20,30 +20,32 @@ screen battle_screen(p_w, com_w):
     #GUI
     #use battle_char_select
     text "Round: [round]"  xalign 0.5
-
-    use moves_screen(p_team, com_team, 0.3)
-    use moves_screen(com_team, p_team, 0.7)
-
     use main_w_data_screen()
     use main_com_data_screen()
+
+    use moves_screen(p_team, com_team, 0.0)
+    use moves_screen(com_team, p_team, 0.65)
+
+
 
 
 #pantalla de movimientos
 screen moves_screen(tori_team,uke_team, x):
+
     $tori_w = tori_team.members[0]
     modal True
-    $y=750
+    $y=0.75
+
     for move in tori_w.moves:
         #$move.calc_hit_prob(uke_w.res_state)   #probabilidad de que el movimiento sea efectivo
-        $y =y+50
-        if battle_sys == 0: #FF10
-            textbutton  "[move.name] /dmg= [move.lvl]": #Sensible si barra de mom es la correcta, alcanza el costo del mov y si no hay otro ataque ya elegido . V2- ataque no elegido no es necesario
-                xalign x ypos y action [SensitiveIf(tori_team.mom_bar_lvl >= move.lvl and tori_w.energy- move.energy_cost >= 0 and len(tori_team.moves_act)<=1), AddToSet(tori_team.moves_act, move), SetVariable("perf_atk_time", last_atk_time)]
-
+        imagebutton  idle move.img_card hover Transform(move.img_card, zoom=1.05, ypos=-100 ) insensitive Transform(move.img_card, alpha=0.5 ):#"[move.name] /dmg= [move.lvl]": #Sensible si barra de mom es la correcta, alcanza el costo del mov y si no hay otro ataque ya elegido . V2- ataque no elegido no es necesario
+            xalign x ypos y action [SensitiveIf(tori_team.mom_bar_lvl >= move.lvl and tori_w.energy- move.energy_cost >= 0 and len(tori_team.moves_act)<=1), AddToSet(tori_team.moves_act, move), SetVariable("perf_atk_time", last_atk_time)]
+        $x +=0.125
 
 #Pantalla para la secuencia de ataque
 screen battle_seq_screen_uno(team, move):
-    modal True
+    #modal True
+
     $w=team.members[0]
     $uke=p_team.atk_target
     use battle_screen(p_w, com_w)
